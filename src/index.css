@@ -1,13 +1,67 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background: #f4f7fa;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover,
+li.active {
+    font-weight: bold;
+    color: inherit;
+    text-decoration: none;
+}
+
+.header {
+    min-height: 80px;
+    max-height: 80px;
+    border-bottom: 1px solid #80808022;
+}
+
+.header h1 {
+    color: #3f4d67
+}
+
+.header img {
+    height: 25px;
+}
+
+.nav {
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 1px 0 20px 0 #3f4d67;
+    min-width: 250px;
+    max-width: 250px;
+    background: #3f4d67;
+    transition: all 0.3s;
+}
+
+.applogo img {
+    height: 32px;
+}
+
+.card {
+    box-shadow: 1px 0 20px 0 #dedede;
+}
+
+.card-header {
+    background: #3f4d67;
+    color: white
+}
+
+.nav.hide {
+    margin-left: -250px;
+    box-shadow: none;
 }

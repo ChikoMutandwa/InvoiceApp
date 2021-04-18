@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/header';
+import SideNav from './components/sidenav';
+import Dashboard from './pages/dashboard';
+import Invoice from './pages/invoice';
+import Customer from './customer/index';
+import Product from './product/index';
+import { Redirect, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="wrapper d-flex vh-100 ">
+        <Route path="/" component={SideNav} />
+        <div className="main d-flex flex-column flex-grow-1 ">
+          <Switch>
+            <Route path="/invoice" render={() => <Header title={"Invoices"} />} />
+            <Route path="/product" render={() => <Header title={"Products"} />} />
+            <Route path="/customer" render={() => <Header title={"Customers"} />} />
+            <Route path="/dashboard" render={() => <Header title={"Dashboard"} />} />
+            <Redirect path="/" to="/dashboard" />
+          </Switch>
+          <div className="content container-fluid p-4 overflow-auto ">
+            <Switch>
+              <Route path="/invoice" component={Invoice} />
+              <Route path="/product" component={Product} />
+              <Route path="/customer" component={Customer} />
+              <Route path="/dashboard" component={Dashboard} />
+            </Switch>
+          </div>
+        </div>
+      </div >
+    </BrowserRouter>
+
   );
 }
 

@@ -68,3 +68,38 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+                                    {/* {clientInformation[1].slice(1, clientInformation.length).map((item, index) => {
+                                        return (
+                                            <tr>
+                                                <td>{item[0]}</td>
+                                                <td>{item[1]}</td>
+                                            </tr>
+                                        );
+                                    })} */}
+
+                                        {/* {clientInformation[0].map((item, index) => {return <th>{item}</th>;})} */}
+
+
+                                    {clientInformation[1].slice(1, clientInformation.length).map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td key={item[0]}>{item[0]}</td>
+                                                <td key={item[1]}>{item[1]}</td>
+                                            </tr>
+                                        );
+                                    })}
+
+                                                                        {clientInformation.slice(1, clientInformation.length).map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td key={item[0]}>{item}</td>
+                                                <td key={item[1]}>{item}</td>
+                                            </tr>
+                                        );
+
+                                        })
+                                    }
+
+                                                                            {/* {clientInformation[0].map((item, index) => {return <th key={index}>{item}</th>;})} */}
