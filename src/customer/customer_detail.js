@@ -22,7 +22,23 @@ export default function CustomerDetail(){
     }
 
     function save() {
-        console.log(customer)
+        let _id = params.customerId;
+        console.warn("item", customer)
+        fetch(`${API_BASE}/customer/${_id}`, { 
+            method: 'PUT',
+            headers: { 
+                "x-api-key": API_KEY,
+                'Accept':'application/json',
+                'Content-Type': 'application/json' 
+            },
+            body:JSON.stringify(customer)
+        }).then((result) => {
+            result.json().then((resp) => {
+                console.warn(resp)
+                getCustomer()
+            })
+        })
+        
     }
 
     function cancel() {
