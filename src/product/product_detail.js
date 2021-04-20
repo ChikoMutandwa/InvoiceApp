@@ -24,7 +24,23 @@ export default function ProductDetail() {
     }
 
     function save() {
-        console.log(product)
+        // console.log(product)
+        let _id = params.productId;
+        console.warn("item", product)
+        fetch(`${API_BASE}/product/${_id}`, { 
+            method: 'PUT',
+            headers: { 
+                Accept: "application/json",
+                "x-api-key": API_KEY,
+                "Content-Type": "application/json", 
+            },
+            body:JSON.stringify(product),
+        }).then((result) => {
+            result.json().then((resp) => {
+                console.warn(resp);
+                getProduct();
+            });
+        }); 
     }
 
     function cancel() {
